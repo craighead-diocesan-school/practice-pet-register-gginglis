@@ -25,22 +25,31 @@ function showPets() {
 
 function removePet() {
     // output all the pets (same as showPets())
-
+    showPets()
     // get the index of the pet to remove from the user
-
+    let remove = prompt('index?')
     // delete that index of the array
+    pets.splice(remove, 1)
 }
 
 function searchPets() {
     // get the name of the pet to search for from the user
-
+    let petToSearchFor = prompt('what pet do you want to find')
     // create a variable to store the result of the search, starting off as 'false' for 'haven't found it yet'
-
+    let searchResult = false
     // for each pet in the array, check if the name of the pet is the same as the one the user is searching for
+    for (let pet of pets) {
+        if (pet.name == petToSearchFor) {
 
-    // if it is the same, update the result of the search to 'true'
-
+            // if it is the same, update the result of the search to 'true'
+            searchResult = true
+        }
+    }
     // if the result of the search is true, tell the user the pet was found
-
-    // if the result of the search is false, tell the user the pet isn't in the register
+    if (searchResult == true) {
+        alert('found it')
+        // if the result of the search is false, tell the user the pet isn't in the register
+    } else {
+        alert('didnt find it')
+    }
 }
